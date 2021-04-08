@@ -13,7 +13,7 @@ int recv_data(int socket, char *namefile, int op);
 int main(int argc, char *argv[]){
     int op = 0;
     if(argc < 3){
-        printf("[ERRO] - Use: %s PORTA (OUTPUT)ARQUIVO\nPara transferencia de imagem Use -i", argv[0], argv[0]);
+        printf("[ERRO] - Use: %s PORTA (OUTPUT)ARQUIVO\nPara transferencia de imagem/executaveis Use -i", argv[0], argv[0]);
         return EXIT_FAILURE;
     }
     for(int i = 0;i < argc;i++){
