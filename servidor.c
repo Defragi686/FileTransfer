@@ -24,13 +24,12 @@ int main(int argc, char *argv[]){
     int PORTA = atoi(argv[1]);
     int skt, acptskt,check_recv;
     char *namefile = argv[2];
-    printf("Programa para realizar transferencias de arquivo (Imagens,Binarios,Texto)\nBy: Kanui\n");
     struct sockaddr_in svaddr,client;
     socklen_t sizeclient = sizeof(client);
     svaddr.sin_family       = AF_INET;
     svaddr.sin_port         = htons(PORTA);
     svaddr.sin_addr.s_addr  = htons(INADDR_ANY);
-
+    printf("Programa com o proposito de realizar\ntransferencias de arquivo (Imagens,Binarios,Texto)\nBy: Kanui\n");
     if( (skt = socket(AF_INET, SOCK_STREAM, 0)) < 0){
         printf("[ERRO] Erro na criação de socket");
         return EXIT_FAILURE;
@@ -39,6 +38,7 @@ int main(int argc, char *argv[]){
         printf("[ERRO] Erro na criação no bind");
         return EXIT_FAILURE;
     }
+    printf("\nAguardando Conexao...\n");
     listen(skt, 2);
 
     acptskt = accept(skt, (struct sockaddr *)&client, &sizeclient);
@@ -66,7 +66,7 @@ int recv_data(int socket, char *namefile, int op){
         printf("[ERRO] Ocorreu um erro ao receber o tamanho do arquivo!\n");
         return 0;
     }
-    printf("Tamanho do arquivo: %d\n Bytes",size);
+    printf("Tamanho do arquivo: %d Bytes\n",size);
 
     status = send(socket, servidormsg, sizeof(servidormsg), 0);
     if(status < 0){
