@@ -19,7 +19,7 @@ int main(int argc, char *argv[]){
     char *hostname = argv[1];
     int skt,check_return;
     struct sockaddr_in client;
-    printf("Programa para realizar transferencias de arquivo (Imagens,Binarios,Texto)\nBy: Kanui\n");
+    printf("Programa feito em c com o proposito de realizar\ntransferencias de arquivo (Imagens,Binarios,Texto)\nBy: Kanui\n\n");
     client.sin_family       = AF_INET;
     client.sin_port         = htons(PORTA);
     client.sin_addr.s_addr  = inet_addr(hostname);
