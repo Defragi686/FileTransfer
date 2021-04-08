@@ -44,7 +44,7 @@ int main(int argc, char *argv[]){
        fprintf(transferfile, "%s", buffer);
        memset(&buffer,'\0',sizeof(buffer));
     }
-    printf("Arquivo recebido!\nSalvo como: %s",);
+    printf("Arquivo recebido!\nSalvo como: %s",argv[2]);
     close(skt);
     return 0;
 }
