@@ -65,7 +65,7 @@ int recv_data(int socket, char *namefile, int op){
         printf("[ERRO] Ocorreu um erro ao receber o tamanho do arquivo!\n");
         return 0;
     }
-    printf("Tamanho da imagem: %d\n",size);
+    printf("Tamanho do arquivo: %d\n Bytes",size);
 
     status = send(socket, servidormsg, sizeof(servidormsg), 0);
     if(status < 0){
@@ -86,7 +86,7 @@ int recv_data(int socket, char *namefile, int op){
             write_s = fwrite(buffer,1,sizeof(buffer), transferfile);
         else
             fprintf(transferfile, "%s", buffer);
-            
+
         recv_size += ler_size;
     }
 
